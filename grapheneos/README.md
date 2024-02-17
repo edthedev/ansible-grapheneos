@@ -1,38 +1,42 @@
 Role Name
 =========
 
+This role configures the local computer with the necessary platform tools,
+and then installs GrapheneOs 
 A brief description of the role goes here.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Currently Ubuntu 20.04 and Pixel7A are supported. In theory other variations should work. Pull requests are welcome to add more.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+platform_tools_dir - where you want platform tools to be installed
+
+  Defaults to `~/bin/platform_tools` of the current user
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Just using builtin, so far.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+See `ansible-pixel7a.yml`
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
+```sh
+ansible-playbook -K -vv ./ansible-pixel7a.yml
+```
 License
 -------
 
-BSD
+GPL V3
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Edward Delaporte (https://edward.delaporte.us)
+Joanna Delaporte (https://joanna.delaporte.us)
