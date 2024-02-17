@@ -4,5 +4,4 @@
   ansible.builtin.service:
     name: fwupd
     state: stopped
-    when: os_family==debian
-    when: ansible_facts['os_family'] == "Debian"
+  when: ansible_facts['os_family'] == "Debian"
