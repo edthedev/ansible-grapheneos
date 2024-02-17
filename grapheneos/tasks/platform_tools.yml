@@ -5,6 +5,11 @@
     name: libarchive-tools
     state: present
   become: yes
+- name: android-sdk-stuff
+  ansible.builtin.apt:
+    name: android-sdk-platform-tools-common
+    state: present
+  become: yes
 - name: add platform tools dir
   ansible.builtin.file:
     path: "{{ platform_tools_dir }}"
