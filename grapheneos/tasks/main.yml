@@ -1,5 +1,5 @@
 ---
 # tasks file for grapheneos
-include: platform_tools.yml
-include: stop_fwupd.yml
-include: install_pixel7a.yml
+- include_tasks: platform_tools.yml
+- include_tasks: stop_fwupd.yml
+# - include_tasks: install_pixel7a.yml

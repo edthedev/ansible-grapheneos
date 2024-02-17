@@ -1,7 +1,7 @@
 ---
 - name: Install GrapheneOS on a Pixel 7A
   gather_facts: no
-  hosts: local
+  hosts: localhost
 
   tasks:
     - name: Install GrapheneOS

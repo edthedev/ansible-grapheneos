@@ -1,7 +1,9 @@
 ---
 # tasks file for tools_for_grapheneos
 - name: platform-tools (libarchive-tools)
-  apt: libarchive-tools
+  ansible.builtin.apt:
+    name: libarchive-tools
+    state: installed
   become: yes
 - name: add platform tools dir
   ansible.builtin.file:
