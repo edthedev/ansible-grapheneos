@@ -22,8 +22,6 @@
 - name: verify fastboot
   shell: "{{ platform_tools_dir }}/platform-tools/fastboot --version"
   register: fastboot_version
-- debug:
-    var: fastboot_version
 - name: fail is no fastboot
   fail:
     msg: Unable to find fastboot
