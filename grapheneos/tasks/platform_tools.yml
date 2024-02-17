@@ -1,0 +1,27 @@
+---
+# tasks file for tools_for_grapheneos
+- name: platform-tools (libarchive-tools)
+  apt: libarchive-tools
+  become: yes
+- name: add platform tools dir
+  ansible.builtin.file:
+    path: "{{ platform_tools_dir }}"
+    state: directory
+- name: get platform tools
+  ansible.builtin.get_url:
+    url: https://dl.google.com/android/repository/platform-tools_r34.0.4-linux.zip
+    dest: "{{ platform_tools_dir }}"
+    checksum: f2eee6e8220f3dfde6e1acc93c5b25d3d8bd215c0b03585b21665f1ea30d66ba
+- name: unpack platform tools
+  ansible.builtin.unarchive:
+    src: "{{ platform_tools_dir }}/platform-tools_r34.0.4-linux.zip"
+    dest: "{{ platform_tools_dir }}"
+    remote_src: yes  # local is our remote...neat
+- name: verify fastboot
+  ansible.builtin.shell:
+    shell: "{{ platform_tools_dir }}/platform-tools/fastboot --version"
+    register: fastboot_version
+- name: fail is no fastboot
+  fail:
+    msg: Unable to find fastboot
+    when: fastboot_version.rc != 0

@@ -1,2 +1,3 @@
 ---
-# defaults file for grapheneos
+# defaults file for tools_for_grapheneos
+platform_tools_dir: ~/bin/android_platform_tools

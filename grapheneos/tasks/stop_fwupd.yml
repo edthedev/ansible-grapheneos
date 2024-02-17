@@ -1,0 +1,8 @@
+---
+# Prevent fwupd bug from causing issues on  older Ubuntu/Debian versions
+- name: stop fwupd
+  ansible.builtin.service:
+    name: fwupd
+    state: stopped
+    when: os_family==debian
+    when: ansible_facts['os_family'] == "Debian"

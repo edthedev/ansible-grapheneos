@@ -1,0 +1,12 @@
+---
+- name: Install GrapheneOS on a Pixel 7A
+  gather_facts: no
+  hosts: local
+
+  tasks:
+    - name: Install GrapheneOS
+      include_role:
+        name: grapheneos
+      vars:
+        phone_model: 'Pixel 7A'
+        host_os: ubuntu-20.04
