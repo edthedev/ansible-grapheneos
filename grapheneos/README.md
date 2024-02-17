@@ -13,9 +13,9 @@ Currently Ubuntu 20.04 and Pixel7A are supported. In theory other variations sho
 Role Variables
 --------------
 
-platform_tools_dir - where you want platform tools to be installed
-
-  Defaults to `~/bin/platform_tools` of the current user
+  platform_tools_dir: ~/bin/android_platform_tools
+  fastboot_bin: "{{ platform_tools_dir }}/platform-tools/fastboot"
+  graphene_files_dir: ~/graphene_files
 
 Dependencies
 ------------

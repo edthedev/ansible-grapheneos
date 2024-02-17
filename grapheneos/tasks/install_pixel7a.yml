@@ -1,2 +1,23 @@
 ---
 # Install Pixel7A using platform tools
+# TODO: Verify this recipe
+-- name: add graphene files dir
+  ansible.builtin.file:
+    path: "{{ graphene_files_dir }}"
+    state: directory
+# TODO: Add verification
+- name: get graphene for Pixel7A
+  ansible.builtin.get_url:
+    url: https://releases.grapheneos.org/lynx-factory-2024020500.zip
+    dest: "{{ graphene_files_dir }}"
+- name: unpack Graphene
+  ansible.builtin.unarchive:
+    src: "{{ graphene_files_dir }}/lynx-factory-2024020500.zip"
+    dest: "{{ graphene_files_dir }}"
+    remote_src: yes  # local is our remote...neat
+- name: unlock for flashing
+  shell: "{{ fastboot_bin }} flashing unlock"
+- name: flash GrapheneOS to Pixel7A
+  shell: ./flash-all.sh
+    chdir: "{{ graphene_files_dir }}/lynx-factory-2024020500"
+
