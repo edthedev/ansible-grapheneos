@@ -2,8 +2,13 @@
 ## Setup
 
 ```sh
-sudo apt-get install ansible
-ansible-galaxy install n
+sudo apt-get install ansible python3.8-venv
+
+mkdir ~/venvs
+cd ~/venvs
+python -m venv ansible
+source ~/venvs/ansible/bin/activate
+pip install ansible
 ```
 
 ## Steps
