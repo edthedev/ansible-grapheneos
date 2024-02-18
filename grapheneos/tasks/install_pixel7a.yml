@@ -4,5 +4,5 @@
   shell: "{{ fastboot_bin }} flashing unlock"
 - name: flash GrapheneOS to Pixel7A
   shell: ./flash-all.sh
-    chdir: "{{ graphene_files_dir }}/lynx-factory-2024020500"
+    chdir: "{{ graphene_files_dir }}/{{ graphene_img }}"
 

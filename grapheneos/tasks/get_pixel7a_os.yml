@@ -8,23 +8,24 @@
 # TODO: Add verification
 - name: get graphene for Pixel7A
   ansible.builtin.get_url:
-    url: https://releases.grapheneos.org/lynx-factory-2024020500.zip
+    url: https://releases.grapheneos.org/{{ graphene_img }}.zip
     dest: "{{ graphene_files_dir }}"
+    creates: "{{ graphene_files_dir }}/{{ graphene_img }}.zip"
 - name: get allowed signers
   ansible.builtin.get_url:
     url: https://releases.grapheneos.org/allowed_signers
     dest: "{{ graphene_files_dir }}"
 - name: get signature
   ansible.builtin.get_url:
-    url: https://releases.grapheneos.org/lynx-factory-2024020500.zip.sig
+    url: https://releases.grapheneos.org/{{ graphene_img }}.zip.sig
     dest: "{{ graphene_files_dir }}"
 - name: verify the release file
   ansible.builtin.shell:
-    cmd: ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s DEVICE_NAME-factory-VERSION.zip.sig < DEVICE_NAME-factory-VERSION.zip
+    cmd: ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s {{ graphene_img }}.zip.sig < {{ graphene_img }}.zip
     chdir: "{{ graphene_files_dir }}"
 - name: unpack Graphene
   ansible.builtin.unarchive:
-    src: "{{ graphene_files_dir }}/lynx-factory-2024020500.zip"
+    src: "{{ graphene_files_dir }}/{{ graphene_img }}.zip"
     dest: "{{ graphene_files_dir }}"
     remote_src: yes  # local is our remote...neat
 

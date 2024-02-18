@@ -3,3 +3,5 @@
 platform_tools_dir: ~/bin/android_platform_tools
 fastboot_bin: "{{ platform_tools_dir }}/platform-tools/fastboot"
 graphene_files_dir: ~/graphene_files
+# Pixel 7a
+graphene_img: lynx-factory-2024020500  
