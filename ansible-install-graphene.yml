@@ -10,6 +10,6 @@
       include_role:
         name: grapheneos
       vars:
-      # Phone model - Pixel 7a
-      # See https://grapheneos.org/releases
-      graphene_img: lynx-factory-2024020500  
+        # Phone model - Pixel 7a
+        # See https://grapheneos.org/releases
+        graphene_img: lynx-factory-2024020500  
