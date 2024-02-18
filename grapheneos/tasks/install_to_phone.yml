@@ -13,3 +13,5 @@
     chdir: "{{ graphene_files_dir }}/{{ graphene_img }}"
   environment:
     PATH: '{{ fastboot_dir }}:{{ ansible_env.PATH }}'
+- pause:
+    prompt: "Disconnect and reboot your phone."
