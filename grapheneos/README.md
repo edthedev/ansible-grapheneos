@@ -16,6 +16,8 @@ Role Variables
   platform_tools_dir: ~/bin/android_platform_tools
   fastboot_bin: "{{ platform_tools_dir }}/platform-tools/fastboot"
   graphene_files_dir: ~/graphene_files
+  # Set this to the version that matches your phone model
+  graphene_img: lynx-factory-2024020500  
 
 Dependencies
 ------------
