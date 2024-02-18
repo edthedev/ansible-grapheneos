@@ -10,7 +10,3 @@ python -m venv ansible
 source ~/venvs/ansible/bin/activate
 pip install ansible
 ```
-
-## Steps
-
-https://grapheneos.org/install/cli#prerequisites
