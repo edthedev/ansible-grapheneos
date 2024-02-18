@@ -1,11 +1,9 @@
 ---
 # Install Pixel7A using platform tools
-# TODO: Verify this recipe
 - name: add graphene files dir
   ansible.builtin.file:
     path: "{{ graphene_files_dir }}"
     state: directory
-# TODO: Add verification
 - name: get graphene for Pixel7A
   ansible.builtin.get_url:
     url: https://releases.grapheneos.org/{{ graphene_img }}.zip
