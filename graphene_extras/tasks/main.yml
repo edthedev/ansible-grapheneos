@@ -12,6 +12,12 @@
   ansible.builtin.get_url:
     url: https://github.com/jellyfin/jellyfin-android/releases/download/v2.6.0/jellyfin-android-v2.6.0-libre-release.apk
     dest: "{{ apk_dir }}/jellyfin-android-v2.6.0-libre-release.apk"
+- name: get Signal APK
+  ansible.builtin.get_url:
+    url: https://updates.signal.org/android/Signal-Android-website-prod-universal-release-6.46.7.apk
+    dest: "{{ apk_dir }}"
+    checksum: sha256:29:F3:4E:5F:27:F2:11:B4:24:BC:5B:F9:D6:71:62:C0
+EA:FB:A2:DA:35:AF:35:C1:64:16:FC:44:62:76:BA:26
 - name: synology apks
   ansible.builtin.get_url:
     url: "{{ item }}"
