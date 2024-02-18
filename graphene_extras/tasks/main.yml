@@ -8,6 +8,19 @@
   ansible.builtin.get_url:
     url: https://f-droid.org/F-Droid.apk
     dest: "{{ apk_dir }}/F-Droid.apk"
+- name: get Jellyfin APK
+  ansible.builtin.get_url:
+    url: https://github.com/jellyfin/jellyfin-android/releases/download/v2.6.0/jellyfin-android-v2.6.0-libre-release.apk
+    dest: "{{ apk_dir }}/jellyfin-android-v2.6.0-libre-release.apk"
+- name: synology apks
+  ansible.builtin.get_url:
+    url: "{{ item }}"
+    dest: "{{ apk_dir }}"
+  loop:
+    - https://global.synologydownload.com/download/Mobile/Android-Drive/3.5.1-940/Android-SynologyDrive.3.5.1-940.ww.apk
+    - https://global.synologydownload.com/download/Mobile/Android-DScam/3.8.2-1102/Android-DScam.3.8.2-1102.ww.apk
+    - https://global.synologydownload.com/download/Mobile/Android-DSfile/4.17.1-588/Android-DSfile.4.17.1-588.ww.apk
+    - https://global.synologydownload.com/download/Mobile/Android-Photos/2.0.0-426/Android-SynologyPhotos.2.0.0-426.ww.apk
 - pause:
     prompt: "Ensure USB Debugging is enabled on your phone, and connect it via USB"
 - name: set dark theme
