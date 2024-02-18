@@ -4,7 +4,9 @@
     prompt: "On your phone, unlock OEM (Developer Settings / OEM unlocking), then boot into the bootloader interface (power+vol down), then press Enter"
 - name: unlock for flashing
   ansible.builtin.shell:
-    cmd: "{{ fastboot_bin }} flashing unlock"
+    cmd: "fastboot flashing unlock"
+  environment:
+    PATH: '{{ fastboot_dir }}:{{ ansible_env.PATH }}'
 - name: flash GrapheneOS to Pixel7A
   ansible.builtin.shell:
     cmd: "{{ graphene_files_dir }}/{{ graphene_img }}/flash-all.sh"
