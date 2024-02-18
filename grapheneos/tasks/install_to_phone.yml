@@ -1,7 +1,7 @@
 ---
 # Install Pixel7A using platform tools
 - pause:
-    prompt: "On your phone, unlock OEM (Developer Settings / OEM unlocking), then press Enter"
+    prompt: "On your phone, unlock OEM (Developer Settings / OEM unlocking), then boot into the bootloader interface (power+vol down), then press Enter"
 - name: unlock for flashing
   ansible.builtin.shell:
     cmd: "{{ fastboot_bin }} flashing unlock"
