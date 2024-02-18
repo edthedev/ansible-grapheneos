@@ -13,5 +13,8 @@
     chdir: "{{ graphene_files_dir }}/{{ graphene_img }}"
   environment:
     PATH: '{{ fastboot_dir }}:{{ ansible_env.PATH }}'
+- name: lock after flashing
+  ansible.builtin.shell:
+    cmd: "fastboot flashing lock"
 - pause:
-    prompt: "Disconnect and reboot your phone."
+    prompt: "On your phoe, set the bootloader to locked, then unplug and reboot and enjoy GrpaheneOS."
