@@ -3,4 +3,4 @@
 - include_tasks: platform_tools.yml
 - include_tasks: stop_fwupd.yml
 - include_tasks: get_pixel7a_os.yml
-# - include_tasks: install_pixel7a.yml
+# - include_tasks: install_to_phone.yml

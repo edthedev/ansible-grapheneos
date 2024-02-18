@@ -9,8 +9,7 @@
 - name: get graphene for Pixel7A
   ansible.builtin.get_url:
     url: https://releases.grapheneos.org/{{ graphene_img }}.zip
-    dest: "{{ graphene_files_dir }}"
-    creates: "{{ graphene_files_dir }}/{{ graphene_img }}.zip"
+    dest: "{{ graphene_files_dir }}/{{ graphene_img }}.zip"
 - name: get allowed signers
   ansible.builtin.get_url:
     url: https://releases.grapheneos.org/allowed_signers
