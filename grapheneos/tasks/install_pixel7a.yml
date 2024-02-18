@@ -5,4 +5,3 @@
 - name: flash GrapheneOS to Pixel7A
   shell: ./flash-all.sh
     chdir: "{{ graphene_files_dir }}/{{ graphene_img }}"
-
