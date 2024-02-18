@@ -24,9 +24,20 @@
     src: "{{ platform_tools_dir }}/platform-tools_r34.0.4-linux.zip"
     dest: "{{ platform_tools_dir }}"
     remote_src: yes  # local is our remote...neat
+- name: where
+  ansible.builtin.shell: "echo $PATH"
+  environment:
+    PATH: '{{ fastboot_dir }}:{{ ansible_env.PATH }}'
+- name: where
+  ansible.builtin.shell: "which fastboot"
+  environment:
+    PATH: '{{ fastboot_dir }}:{{ ansible_env.PATH }}'
 - name: verify fastboot
-  shell: "{{ fastboot_bin }} --version"
+  ansible.builtin.command:
+    cmd: "fastboot --version"
   register: fastboot_version
+  environment:
+    PATH: '{{ fastboot_dir }}:{{ ansible_env.PATH }}'
 - name: fail is no fastboot
   fail:
     msg: Unable to find fastboot

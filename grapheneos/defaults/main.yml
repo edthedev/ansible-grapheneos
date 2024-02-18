@@ -1,7 +1,7 @@
 ---
 # defaults file for tools_for_grapheneos
-platform_tools_dir: ~/bin/android_platform_tools
-fastboot_bin: "{{ platform_tools_dir }}/platform-tools/fastboot"
-graphene_files_dir: ~/graphene_files
+platform_tools_dir: "{{ ansible_env.HOME }}/bin/android_platform_tools"
+fastboot_dir: "{{ platform_tools_dir }}/platform-tools"
+graphene_files_dir: "{{ ansible_env.HOME }}/graphene_files"
 # Pixel 7a
 graphene_img: lynx-factory-2024020500  
