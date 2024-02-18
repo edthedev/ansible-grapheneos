@@ -1,32 +1,6 @@
 ---
 # tasks file for graphene_extras
-- name: ensure apk_dir exists
-  ansible.builtin.file:
-    path: "{{ apk_dir }}"
-    state: directory
-- name: get F-Droid APK
-  ansible.builtin.get_url:
-    url: https://f-droid.org/F-Droid.apk
-    dest: "{{ apk_dir }}/F-Droid.apk"
-- name: get Jellyfin APK
-  ansible.builtin.get_url:
-    url: https://github.com/jellyfin/jellyfin-android/releases/download/v2.6.0/jellyfin-android-v2.6.0-libre-release.apk
-    dest: "{{ apk_dir }}/jellyfin-android-v2.6.0-libre-release.apk"
-- name: get Signal APK
-  ansible.builtin.get_url:
-    url: https://updates.signal.org/android/Signal-Android-website-prod-universal-release-6.46.7.apk
-    dest: "{{ apk_dir }}"
-    checksum: sha256:29:F3:4E:5F:27:F2:11:B4:24:BC:5B:F9:D6:71:62:C0
-EA:FB:A2:DA:35:AF:35:C1:64:16:FC:44:62:76:BA:26
-- name: synology apks
-  ansible.builtin.get_url:
-    url: "{{ item }}"
-    dest: "{{ apk_dir }}"
-  loop:
-    - https://global.synologydownload.com/download/Mobile/Android-Drive/3.5.1-940/Android-SynologyDrive.3.5.1-940.ww.apk
-    - https://global.synologydownload.com/download/Mobile/Android-DScam/3.8.2-1102/Android-DScam.3.8.2-1102.ww.apk
-    - https://global.synologydownload.com/download/Mobile/Android-DSfile/4.17.1-588/Android-DSfile.4.17.1-588.ww.apk
-    - https://global.synologydownload.com/download/Mobile/Android-Photos/2.0.0-426/Android-SynologyPhotos.2.0.0-426.ww.apk
+- include_tasks: get_apk_files.yml
 - pause:
     prompt: "Ensure USB Debugging is enabled on your phone, and connect it via USB"
 - name: set dark theme
