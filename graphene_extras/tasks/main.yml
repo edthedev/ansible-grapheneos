@@ -30,6 +30,6 @@
     PATH: '{{ adb_dir }}:{{ ansible_env.PATH }}'
 - name: install all
   ansible.builtin.shell:
-    cmd: "adb install {{ apk_dir }}/*.apk"
+    cmd: "adb install-multi-package -r {{ apk_dir }}/*.apk"
   environment:
     PATH: '{{ adb_dir }}:{{ ansible_env.PATH }}'
