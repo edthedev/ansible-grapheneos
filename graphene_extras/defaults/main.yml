@@ -1,2 +1,4 @@
 ---
 # defaults file for graphene_extras
+apk_dir: "{{ ansible_env.HOME }}/android_apk"
+adb_dir: "{{ ansible_env.HOME }}/bin/android_platform_tools/platform-tools"

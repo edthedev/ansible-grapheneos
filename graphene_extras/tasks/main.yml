@@ -1,2 +1,22 @@
 ---
 # tasks file for graphene_extras
+- name: ensure apk_dir exists
+  ansible.builtin.file:
+    path: "{{ apk_dir }}"
+    state: directory
+- name: get F-Droid APK
+  ansible.builtin.get_url:
+    url: https://f-droid.org/F-Droid.apk
+    dest: "{{ apk_dir }}/F-Droid.apk"
+- pause:
+    prompt: "Ensure USB Debugging is enabled on your phone, and connect it via USB"
+- name: set dark theme
+  ansible.builtin.shell:
+    cmd: 'adb shell "cmd uimode night yes"'
+  environment:
+    PATH: '{{ adb_dir }}:{{ ansible_env.PATH }}'
+- name: install all
+  ansible.builtin.shell:
+    cmd: "adb install {{ apk_dir }}/*.apk"
+  environment:
+    PATH: '{{ adb_dir }}:{{ ansible_env.PATH }}'
