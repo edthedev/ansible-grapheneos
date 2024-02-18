@@ -7,7 +7,10 @@
     cmd: "fastboot flashing unlock"
   environment:
     PATH: '{{ fastboot_dir }}:{{ ansible_env.PATH }}'
+- pause:
+    prompt: "Run the following command in a separate terminal:\n"
 - name: flash GrapheneOS to Pixel7A
+  ansible
   ansible.builtin.shell:
     cmd: "{{ graphene_files_dir }}/{{ graphene_img }}/flash-all.sh"
     chdir: "{{ graphene_files_dir }}/{{ graphene_img }}"

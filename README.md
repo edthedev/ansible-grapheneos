@@ -2,6 +2,8 @@
 
 An Ansible role for installing GrapheneOs.
 
+DISCLAIMER: This script comes with no warranty. You could brick your phone.
+
 This role replicates the steps outlined at:
 https://grapheneos.org/install/cli#prerequisites
 as of February 2024.
