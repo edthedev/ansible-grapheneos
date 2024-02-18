@@ -21,6 +21,7 @@
 - name: verify the release file
   ansible.builtin.shell:
     cmd: ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s DEVICE_NAME-factory-VERSION.zip.sig < DEVICE_NAME-factory-VERSION.zip
+    chdir: "{{ graphene_files_dir }}"
 - name: unpack Graphene
   ansible.builtin.unarchive:
     src: "{{ graphene_files_dir }}/lynx-factory-2024020500.zip"
