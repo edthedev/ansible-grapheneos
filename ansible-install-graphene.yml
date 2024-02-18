@@ -10,5 +10,6 @@
       include_role:
         name: grapheneos
       vars:
-        phone_model: 'Pixel 7A'
-        host_os: ubuntu-20.04
+      # Phone model - Pixel 7a
+      # See https://grapheneos.org/releases
+      graphene_img: lynx-factory-2024020500  
