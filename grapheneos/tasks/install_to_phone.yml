@@ -1,7 +1,13 @@
 ---
 # Install Pixel7A using platform tools
+- pause:
+    prompt: "On your phone, make sure your operating system is up to date, then press Enter."
+- pause:
+    prompt: "On your phone, unlock OEM (Developer Settings / OEM unlocking), then press Enter"
 - name: unlock for flashing
-  shell: "{{ fastboot_bin }} flashing unlock"
+  ansible.builtin.shell:
+    cmd: "{{ fastboot_bin }} flashing unlock"
 - name: flash GrapheneOS to Pixel7A
-  shell: ./flash-all.sh
+  ansible.builtin.shell:
+    cmd: flash-all.sh
     chdir: "{{ graphene_files_dir }}/{{ graphene_img }}"
