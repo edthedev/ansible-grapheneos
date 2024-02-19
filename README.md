@@ -23,10 +23,17 @@ Assumptions:
 ansible-playbook -K ansible-setup-localhost.yml
 ```
 
+> The -K prompts for your sudo password, so that libarchive-tools can be installed via apt.
+
 1. On your phone, unlock OEM.
 
 1. Plug your phone into `localhost` via USB
 
 1. Run the install scripts (1, then 2, then 3)
 
-1. Optionally, install the additional packages
+1. Optionally, install the additional packages:
+
+```sh
+ansible-playbook ansible-setup-extras.yml
+./4-install-extras.sh
+```
