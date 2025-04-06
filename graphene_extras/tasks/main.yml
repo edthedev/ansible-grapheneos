@@ -8,6 +8,11 @@
     cmd: 'adb shell "cmd uimode night yes"'
   environment:
     PATH: '{{ adb_dir }}:{{ ansible_env.PATH }}'
+- name: set three button navigation
+  ansible.builtin.shell:
+    cmd: 'adb shell cmd overlay enable com.android.internal.systemui.navbar.threebutton'
+  environment:
+    PATH: '{{ adb_dir }}:{{ ansible_env.PATH }}'
 - name: install all
   ansible.builtin.shell:
     cmd: "adb install-multi-package -r {{ apk_dir }}/*.apk"
